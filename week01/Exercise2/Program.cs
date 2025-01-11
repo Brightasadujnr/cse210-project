@@ -31,17 +31,37 @@ class Program
             letter = "F";
         }
         
-        Console.WriteLine($"You grade is: {letter}");
+        int lastDigit = percent % 10;
+        string sign = "";
 
-        if (percent >=70)
-         {
-            Console.WriteLine("Well done, You've passed!");
-         }
+        if (lastDigit >= 7)
+        {
+            sign = "+";
+        }
+        else if (lastDigit < 3)
+        {
+            sign = "-";
+        }
 
+    
+        if (letter == "A" && sign == "+")
+        {
+            sign = ""; 
+        }
+        if (letter == "F")
+        {
+            sign = "";
+        }
+        Console.WriteLine($"Your grade is: {letter}{sign}");
+
+        
+        if (percent >= 70)
+        {
+            Console.WriteLine("Well done, you've passed!");
+        }
         else
         {
-            Console.Write("Sorry, try again next time.");
+            Console.WriteLine("Sorry, try again next time.");
         }
     }
-        
 }
